@@ -92,12 +92,13 @@
 .maincont1 {
     display: flex;
     flex-direction: row;
-    margin-right: 20px;
+    width: 100%;
+    /* margin-right: 20px; */
 }
 
 .text_mc1 {
     width: 181px;
-    height: 20px;
+    /* height: 20px; */
     margin: 8px 0px 0px 24px;
     font-family: Roboto;
     font-size: 22px;
@@ -110,12 +111,20 @@
     color: #646464;
 }
 
-.maincont1>button {
+.maincont1 button {
     background-color: #1fb6ff;
     width: 132px;
     height: 36px;
     border-radius: 4px;
-    margin: 8px 0px 0px 900px;
+    /* margin: 8px 0px 0px 900px; */
+}
+
+.mc12 {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .maincont1 img {
@@ -147,7 +156,7 @@
 .maincont2 {
     display: flex;
     flex-direction: row;
-    height: 86px;
+    /* height: 86px; */
     margin: 16px 20px 0px 20px;
     padding: 20px 15px;
     border: 2px solid #e1e1e1;
@@ -372,11 +381,11 @@
 }
 
 .pgnum {
-     width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-/*     margin: 0px 0px 0px 715px; */
+    /* margin: 0px 0px 0px 715px; */
 }
 
 .pgnum1 {
@@ -417,4 +426,10 @@
     letter-spacing: normal;
     text-align: right;
     color: #a2a6a8;
+}
+
+@media only screen and (max-width: 800px) {
+    .maincont {
+        width: 100%;
+    }
 }
