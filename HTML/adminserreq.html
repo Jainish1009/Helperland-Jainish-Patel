@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+    <link rel="stylesheet" href="./assets/css/upcoser.css">
+    <link rel="stylesheet" href="./assets/css/prices.css">
+    <link rel="stylesheet" href="./assets/css/homepage.css">
+    <link rel="stylesheet" href="./assets/css/servicepro.css">
+    <link rel="stylesheet" href="./assets/css/faq.css">
+    <link rel="stylesheet" href="./assets/css/contact.css">
+    <link rel="stylesheet" href="./assets/css/about.css">
+    <link rel="stylesheet" href="./assets/css/customerser.css">
+    <link rel="stylesheet" href="./assets/css/adminusermanage.css">
+    <link rel="stylesheet" href="./assets/css/adminserreq.css">
+
+
+    <title>Admin Service Request</title>
+</head>
+
+<body>
+
+    <header class="mainhead">
+        <h2 class="mainh2">helperland</h2>
+        <div class="ml-auto mainheaddiv">
+            <!-- <img src="./assets/img/admin-user.png" alt="">&nbsp; -->
+            <span class="hdp">James Smith</span>
+            <a alt="Logout" class="logout" style="cursor: pointer;" title="Sign Out">
+                <img alt="Logout" src="./assets/img/logout.png">
+            </a>
+
+        </div>
+    </header>
+    <section>
+        <div class="mainbdy">
+
+            <div class="sidebar">
+                <div class="lfbx">
+                    <p class="lftxt">Service Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt">Role Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="w3-bar-item w3-button lfbx11 txt10" onclick="myAccFunc()">
+                    Coupon Code Management &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down "></i></div>
+                <div id="demoAcc" class="w3-hide w3-white w3-card-4 lfbx12 txt10">
+                    <a href="#" class="w3-bar-item w3-button">Coupon Code</a>
+                    <a href="#" class="w3-bar-item w3-button">Usage History</a>
+                </div>
+                <!-- <div class="lfbx1 lfbx11">
+                    <p class="lftxt">Coupon Code Management</p>
+                    <a href=""><img src="./assets/img/keyboard-right-arrow-button-copy.png" alt="">
+                    </a>
+
+                </div> -->
+                <div class="lfbx">
+                    <p class="lftxt">Escalation Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt" style="color: #1fb6ff;">Service Request</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt">Service Providers</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt">User Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+
+                <div class="w3-bar-item w3-button lfbx11 txt10" onclick="myAccFunc1()">
+                    Finance Module &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down "></i></div>
+                <div id="demoAcc1" class="w3-hide w3-white w3-card-4 lfbx12 txt10">
+                    <a href="#" class="w3-bar-item w3-button">All Transactions</a>
+                    <a href="#" class="w3-bar-item w3-button">Generate Payment</a>
+                    <a href="#" class="w3-bar-item w3-button">Download Invoices</a>
+                </div>
+                <!-- <div class="lfbx1 lfbx12">
+                    <p class="lftxt">Finance Module</p>
+                    <a href=""><img src="./assets/img/keyboard-right-arrow-button-copy.png" alt="">
+                    </a>
+                </div> -->
+                <div class="lfbx">
+                    <p class="lftxt">Zip Code Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt">Rating Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt">Inquiry Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+                <div class="lfbx">
+                    <p class="lftxt">Newsletter Management</p>
+                    <a href=""><img src="" alt=""></a>
+                </div>
+
+                <div class="w3-bar-item w3-button lfbx11 txt10" onclick="myAccFunc2()">
+                    Content Management &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down "></i></div>
+                <div id="demoAcc2" class="w3-hide w3-white w3-card-4 lfbx12 txt10">
+                    <a href="#" class="w3-bar-item w3-button">Blog</a>
+                    <a href="#" class="w3-bar-item w3-button">FAQs</a>
+                </div>
+                <!-- <div class="lfbx1 lfbx13">
+                    <p class="lftxt">Content Management</p>
+                    <a href=""><img src="./assets/img/keyboard-right-arrow-button-copy.png" alt=""></a>
+
+                </div> -->
+            </div>
+            <div class="maincont table table-responsive">
+                <div class="maincont1">
+                    <p class="text_mc1"> User Management </p>
+                </div>
+
+                <div class="maincont2 frm12">
+                    <form>
+
+                        <input type="number" placeholder="Service ID" id="usrbx11" class="usrtxt">
+                        <select name="" id="usrbx12">
+                            <option value="User Role"><span class="usrtxt">Customer</span></option>
+                        </select>
+                        <select name="" id="usrbx13">
+                            <option value="User Role"><span class="usrtxt">Service Provider</span></option>
+                        </select>
+                        <select name="" id="usrbx14">
+                            <option value="User Role"><span class="usrtxt">Status</span></option>
+                        </select>
+                        <input type="date" name="From" id="usrbx15">
+                        <input type="date" name="To" id="usrbx15">
+                        <button type="button" class="usrsc1" style="background-color: #1fb6ff;">Search</button>
+                        <button type="button" class="usrsc1">Clear</button>
+
+                    </form>
+                </div>
+                <div class="main_table">
+                    <div>
+                        <table class="table table-responsive">
+
+                            <tr class="row1" style="background-color: #f9f9f9;">
+                                <th class="clm1">
+                                    <div class="first_1">
+                                        <p>Service ID</p>
+                                        <img src="./assets/img/sort.png" alt="">
+                                    </div>
+                                </th>
+                                <th class="clm2">
+                                    <div class="first_1">
+                                        <p>Service date</p>
+                                        <img src="./assets/img/sort.png" alt="">
+                                    </div>
+                                </th>
+                                <th class="clm3">
+                                    <div class="first_1">
+                                        <p>Customer details</p>
+                                        <img src="./assets/img/sort.png" alt="">
+                                    </div>
+                                </th>
+                                <th class="clm4">
+                                    <div class="first_1">
+                                        <p>Service provider</p>
+                                        <img src="./assets/img/sort.png" alt="">
+                                    </div>
+                                </th>
+                                <th class="clm5">
+                                    <div class="first_1">
+                                        <p>Status</p>
+                                        <img src="./assets/img/sort.png" alt="">
+                                    </div>
+                                </th>
+                                <th class="col3">
+                                    <div class="first_1">
+                                        <p>Actions</p>
+                                    </div>
+                                </th>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div>
+                                            <p class=""></p>
+                                            <div class="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <p class=""></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #F2BB37 0% 0% no-repeat padding-box; width: 45px;
+                                        height: 24px;">
+                                            <p class="tc">New</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div>
+                                            <p class=""></p>
+                                            <div class="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <img src="" alt="">
+                                                <p class=""></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #F2BB37 0% 0% no-repeat padding-box; width: 45px;
+                                        height: 24px;">
+                                            <p class="tc">New</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="hat_img">
+                                            <img src="./assets/img/cap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="txt2">Lyum Watson</p>
+                                            <div class="star_div">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star2.png" alt="">
+                                                <p class="txt2">4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #1FB6FF 0% 0% no-repeat padding-box; width: 62px;
+                                        height: 24px;">
+                                            <p class="tc">Pending</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="hat_img">
+                                            <img src="./assets/img/cap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="txt2">Lyum Watson</p>
+                                            <div class="star_div">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star2.png" alt="">
+                                                <p class="txt2">4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #1FB6FF 0% 0% no-repeat padding-box; width: 62px;
+                                        height: 24px;">
+                                            <p class="tc">Pending</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="hat_img">
+                                            <img src="./assets/img/cap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="txt2">Lyum Watson</p>
+                                            <div class="star_div">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star2.png" alt="">
+                                                <p class="txt2">4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #67B644 0% 0% no-repeat padding-box; width: 78px;
+                                        height: 24px;">
+                                            <p class="tc">Completed</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="hat_img">
+                                            <img src="./assets/img/cap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="txt2">Lyum Watson</p>
+                                            <div class="star_div">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star2.png" alt="">
+                                                <p class="txt2">4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #67B644 0% 0% no-repeat padding-box; width: 78px;
+                                        height: 24px;">
+                                            <p class="tc">Completed</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="hat_img">
+                                            <img src="./assets/img/cap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="txt2">Lyum Watson</p>
+                                            <div class="star_div">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star2.png" alt="">
+                                                <p class="txt2">4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #FF6B6B 0% 0% no-repeat padding-box; width: 72px;
+                                        height: 24px;">
+                                            <p class="tc">Canceled</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="row1">
+                                <td class="clm1">
+                                    <div class="first_2">
+                                        <p>323436</p>
+                                    </div>
+                                </td>
+                                <td class="clm2">
+                                    <div class="first_2">
+                                        <div class="col_2">
+                                            <img src="./assets/img/calendar.png" alt="">
+                                            <p class="text1">09/05/2021</p>
+                                        </div>
+                                        <!-- </br> -->
+                                        <div class="col_2" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-712.png" alt="">
+                                            <p class="text2">12:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm3">
+                                    <div class="first_2">
+                                        <div class="col_3">
+                                            <p class="text2">David Bough</p>
+                                        </div>
+                                        <div class="col_3" style="margin-top: 7px;">
+                                            <img src="./assets/img/layer-719.png" alt="">
+                                            <p class="text2"> Musterstrabe 5,12345 Bonn</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm4">
+                                    <div class="first_2 d-flex">
+                                        <div class="hat_img">
+                                            <img src="./assets/img/cap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="txt2">Lyum Watson</p>
+                                            <div class="star_div">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star1.png" alt="">
+                                                <img src="./assets/img/star2.png" alt="">
+                                                <p class="txt2">4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="clm5 d-flex justify-content-center">
+                                    <div class="first_2">
+                                        <div class="td_4" style="background: #67B644 0% 0% no-repeat padding-box; width: 78px;
+                                        height: 24px;">
+                                            <p class="tc">Completed</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col3">
+                                    <div class="dropdown first_22">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="./assets/img/group-38.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                                            <a class="dropdown-item" href="#">Refund</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
+                                            <a class="dropdown-item" href="#">Change SP</a>
+                                            <a class="dropdown-item" href="#">Escalate</a>
+                                            <a class="dropdown-item" href="#">History</a>
+                                            <a class="dropdown-item" href="#">Download Invoice</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <hr class="horiline">
+
+                        <div class="optenr">
+
+                            <div class="optenr1">
+                                <p class="shw1">Show</p>
+                                <select name="" id="shw1bx">
+                                        <option value="a">10</option>
+                                        <option value="b">15</option>
+                                        <option value="c">20</option>
+                                    </select>
+                                <p class="lstenr">Entries</p>
+                            </div>
+
+                            <div class="pgnum">
+                                <div class="pgnum1 pgnum2">
+                                    <a href=""><img src="./assets/img/polygon-1-copy-5.png" alt=""></a>
+                                </div>
+                                <div class="pgnum1" style="background-color: #565656; color: white;">1</div>
+                                <div class="pgnum1">2</div>
+                                <div class="pgnum1">3</div>
+                                <div class="pgnum1">4</div>
+                                <div class="pgnum1">5</div>
+                                <div class="pgnum1 pgnum2" style="transform: rotate(180deg);">
+                                    <a href=""><img src="./assets/img/polygon-1-copy-5.png" alt=""></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="cpy">
+                            <p>
+                                ©2018 Helperland. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+<script>
+    function myAccFunc() {
+        var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-lightgray";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-lightgray", "");
+        }
+    }
+
+    function myAccFunc1() {
+        var x = document.getElementById("demoAcc1");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-lightgray";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-lightgray", "");
+        }
+    }
+
+    function myAccFunc2() {
+        var x = document.getElementById("demoAcc2");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-lightgray";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-lightgray", "");
+        }
+    }
+</script>
+
+<!-- Bootstrp link -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+</html>
