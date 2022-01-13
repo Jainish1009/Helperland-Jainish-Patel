@@ -372,9 +372,11 @@
 }
 
 .pgnum {
+     width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 0px 0px 0px 715px;
+    justify-content: flex-end;
+/*     margin: 0px 0px 0px 715px; */
 }
 
 .pgnum1 {
