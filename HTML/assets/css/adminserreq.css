@@ -1,0 +1,147 @@
+#usrbx11 {
+    width: 110px;
+    height: 46px;
+    margin-right: 23px;
+    padding: 10px 8px;
+    border: solid 1px #dedddd;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #a0a0a0;
+}
+
+#usrbx12 {
+    width: 127px;
+    height: 46px;
+    margin-right: 23px;
+    padding: 10px 8px;
+    border: solid 1px #dedddd;
+}
+
+#usrbx13 {
+    width: 152px;
+    height: 46px;
+    margin-right: 23px;
+    padding: 10px 8px;
+    border: solid 1px #dedddd;
+}
+
+#usrbx14 {
+    width: 120px;
+    height: 46px;
+    margin-right: 23px;
+    padding: 10px 8px;
+    border: solid 1px #dedddd;
+}
+
+#usrbx15 {
+    width: 135px;
+    height: 46px;
+    margin-right: 23px;
+    padding: 10px 8px;
+    border: solid 1px #dedddd;
+    /* background: url(../img/admin-calendar-blue.png) left no-repeat;
+    display: inline-block;
+    vertical-align: top; */
+}
+
+.usrsc1 {
+    width: 84px;
+    height: 46px;
+    margin-right: 17px;
+    padding: 10px 8px;
+    border: solid 1px #dedddd;
+    border-radius: 5px;
+}
+
+.frm12 {
+    margin-top: 25px;
+}
+
+.clm1 {
+    width: 130px;
+    display: flex;
+    justify-content: center;
+}
+
+.clm2 {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.clm3 {
+    width: 300px;
+}
+
+.clm4 {
+    width: 200px;
+}
+
+.clm5 {
+    width: 200px;
+}
+
+.lfbx11 {
+    padding-top: 7px;
+    padding-left: 15px;
+    border: 0.05px solid rgb(218, 210, 210);
+    width: 272px;
+    background: #F9F9F9 0% 0% no-repeat padding-box;
+    text-align: left;
+}
+
+#demoAcc a {
+    display: block;
+    background-color: #F9F9F9;
+    text-align: left;
+    text-decoration: none;
+}
+
+#demoAcc1 a {
+    display: block;
+    background-color: #F9F9F9;
+    text-align: left;
+    text-decoration: none;
+}
+
+#demoAcc2 a {
+    display: block;
+    background-color: #F9F9F9;
+    text-align: left;
+    text-decoration: none;
+}
+
+.txt10 {
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #646464;
+}
+
+.lfbx12 {
+    border: 0.05px solid rgb(218, 210, 210);
+    width: 272px;
+    background: #F9F9F9 0% 0% no-repeat padding-box;
+    text-align: left;
+}
+
+#demoAcc,
+#demoAcc1,
+#demoAcc2 {
+    background-color: #F9F9F9 !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .maincont {
+        width: 100%;
+    }
+}
