@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"] - HelperlandBackend</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+
+    <header>
+
+        <div class="container-fluid" style="background-image: url(./assets/img/group-35.png); height:auto;width: auto;overflow: hidden;;background-size: cover;background-position: center;">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg  navbar-dark">
+                <div class="container-fluid">
+                    <a asp-controller="Home" asp-action="Index"><img src="./assets/img/white-logo-transparent-background.png"></a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsenavbar">
+                        <ul class="navbar-nav ml-auto text-center">
+                            <li class="nav-item">
+                                <a href="" class="nav-link text-white "><span class="btn-1">Book a Cleaner</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Prices" class="nav-link text-white"><span>Prices</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link text-white"><span>Our Guarantee</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#blog" class="nav-link text-white"><span>Blog</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Contact" class="nav-link text-white"><span>Contact us</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link text-white"><span class="btn-2">Login</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link text-white "><span class="btn-1">Become a Helper</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link text-white"><span> <img src="./assets/img/flag.png"></span></a><i class="fa fa-chevron-down" style="color: white;"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- section-1 -->
+            <div class="row" style="margin-bottom: 10vw;margin-top: 95px;">
+                <div class="col-6" style="margin-left: 40px;">
+                    <h1 style="color: #ffff;" class="h1">Lorem ipsum elit.</h1>
+                    <i class="fa fa-check" style="color: #ffff;"></i><span style="color: #ffff;" class="h4"> ipsum, dolor sit amet consectetur adipisicing elit.</span><br>
+                    <i class="fa fa-check" style="color: #ffff;"></i><span style="color: #ffff" class="h4">Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br></span>
+                    <i class="fa fa-check" style="color: #ffff;"></i><span style="color: #ffff;" class="h4">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+                </div>
+                <div class="col-5">
+                    <Button value="" style="background-color: rgba(0, 96, 114, 0.5);border-radius: 20px;border: 1px solid rgba(255, 255, 255, 0.5);height: 40px;width: 161px;margin-top: 30px;margin-left: 40px;">Let's Book Cleaner</Button>
+                </div>
+            </div>
+            <!-- section-2 -->
+            <div class="row">
+                <div class="col-12 res" style="display: flex; justify-content: center;">
+                    <div class="imgbox">
+                        <img src="./assets/img/forma-1-copy.png">
+                        <p style="text-align:center;">Enter Your PostCode</p>
+                    </div>
+
+                    <img src="./assets/img/step-arrow-1.png" style="width: 5vw;height:2vw;transform: translateY(30%);">
+                    <div class="imgbox">
+                        <img src="./assets/img/group-22.png">
+                        <p style="text-align:center;">Select Your Plan</p>
+                    </div>
+                    <img src="./assets/img/step-arrow-1.png" style="width: 5vw;height:2vw;transform: translateY(30%);">
+                    <div class="imgbox">
+                        <img src="./assets/img/forma-1.png">
+                        <p style="text-align:center;">Pay Securely Online</p>
+                    </div>
+                    <img src="./assets/img/step-arrow-1.png" style="width: 5vw;height:2vw;transform: translateY(30%);">
+                    <div class="imgbox">
+                        <img src="./assets/img/forma-3.png">
+                        <p style="text-align:center;">Enjoy Amazing Service</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="display: flex; justify-content: center; margin-top: 30px;">
+                <i class="fa fa-arrow-circle-o-down" style="font-size:36px;color:white"></i>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <div class="container-fluid" style="background-color: black;">
+        <div class="row">
+            <div class="col-2">
+                <a asp-controller="Home" asp-action="Index"><img src="./assets/img/white-logo-transparent-background-copy-4.png" alt="" style="padding-left: 45px;" class="logo"></a></div>
+            <div class="col-8">
+                <ul style="display: flex; justify-content: center;padding-top: 24px;" class="fo_nav">
+                    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;">
+                    <li style="color: white; list-style-type: none; margin: 0px 10px;">Home</li></a>
+                    <a asp-controller="Home" asp-action="About" style="text-decoration: none;">
+                    <li style="color: white;list-style-type: none;margin: 0px 10px;">About</li></a>
+                    <li style="color: white;list-style-type: none;margin: 0px 10px;">TESTIMONIALS</li>
+                    <a asp-controller="Home" asp-action="Faq" style="text-decoration: none;">
+                    <LI style="color: white;list-style-type: none;margin: 0px 10px;">FAQS</LI></a>
+                    <li style="color: white;list-style-type: none;margin: 0px 10px;">INSURANCE POLICY</li>
+                    <li style="color: white;list-style-type: none;margin: 0px 10px;">IMPRESSUM</li>
+                </ul>
+            </div>
+            <div class="col-2 ico">
+                <i class="fa fa-facebook-square inst" style="font-size:36px;color: white;"></i>
+                <i class="fa fa-instagram" style="font-size:36px;color: white; margin-left: 10px;"></i>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color: #292929;height: auto">
+        <div class="row">
+            <div class="col-12">
+                <p style="color: #f1f1f1; text-align: center;height: auto;" class="rsp">Lorem, ipsum dolor sit amet consectetur adipius, commodi.<a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
