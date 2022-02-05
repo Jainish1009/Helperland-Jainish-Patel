@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Jainish\\Intern Knowl\\Helperland\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+      "projectUniqueName": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
       "projectName": "HelperlandBackend",
-      "projectPath": "D:\\Jainish\\Intern Knowl\\Helperland\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+      "projectPath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
       "packagesPath": "C:\\Users\\jaini\\.nuget\\packages\\",
-      "outputPath": "D:\\Jainish\\Intern Knowl\\Helperland\\Helperland\\HelperlandBackend\\obj\\",
+      "outputPath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jaini\\AppData\\Roaming\\NuGet\\NuGet.Config",

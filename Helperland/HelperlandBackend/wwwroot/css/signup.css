@@ -1,0 +1,37 @@
+﻿.frm1 {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.frmcont1 {
+    width: 47vw;
+    height: auto;
+    background-color: white;
+    box-shadow: 4px 4px 10px black;
+    margin: 29px auto;
+    padding: 20px;
+}
+
+.phn1 {
+    display: flex;
+    width: 95%;
+    margin: auto;
+}
+
+    .phn1 input:first-child {
+        width: 20%;
+        background-color: lightgray;
+    }
+
+.div3 {
+    margin-left: 2px;
+    border:hidden;
+}
+
+.faq2 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}

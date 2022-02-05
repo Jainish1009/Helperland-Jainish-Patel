@@ -15,6 +15,7 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- css file -->
     <link href="~/css/headfoot.css" rel="stylesheet" />
+   
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -41,28 +42,40 @@
                     <a asp-controller="Home" asp-action="Contact" class="nav-link"><span class="book_now_text other_btn">Contact Us</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link login" href="#"><span class="login_text">Login</span></a>
+                    <a class="nav-link login" data-toggle="modal" data-target="#loginModal" href="#"><span class="login_text">Login</span></a>
                 </li>
                 <li class="nav-item prices" style="background-color: #29626d;">
-                    <a class="nav-link" href="#"><span class="login_text">Become a Helper</span></a>
+                    <a asp-controller="Home" asp-action="Serviceprovider" class="nav-link"><span class="login_text">Become a Helper</span></a>
                 </li>
             </ul>
         </div>
     </nav>
+
+
+   
+
+
+    
     @RenderBody()
+
+
+
 
     <!-- footer -->
     <div class="for_footer">
         <div class="perent_footer">
             <div class="first_child">
                 <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/logo-small.png" alt="" class="footer_logo"></a>
-</div>
+            </div>
             <div class="secound_child">
                 <ul class="footer_ul">
-                    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;"><li class="footer_nav">Home</li></a>
-                    <a asp-controller="Home" asp-action="About" style="text-decoration: none;"><li class="footer_nav">About</li></a>
+                    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;">
+                    <li class="footer_nav">Home</li></a>
+                    <a asp-controller="Home" asp-action="About" style="text-decoration: none;">
+                    <li class="footer_nav">About</li></a>
                     <li class="footer_nav">TESTIMONIALS</li>
-                    <a asp-controller="Home" asp-action="Faq" style="text-decoration: none;"><li class="footer_nav">FAQS</li></a>
+                    <a asp-controller="Home" asp-action="Faq" style="text-decoration: none;">
+                    <li class="footer_nav">FAQS</li></a>
                     <li class="footer_nav" style="text-align: center;">INSURANCE POLICY</li>
                     <li class="footer_nav">IMPRESSUM</li>
                 </ul>

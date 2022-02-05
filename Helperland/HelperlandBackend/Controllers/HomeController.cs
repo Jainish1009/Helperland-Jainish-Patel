@@ -39,6 +39,18 @@ namespace HelperlandBackend.Controllers
         {
             return View();
         }
+        public IActionResult Serviceprovider()
+        {
+            return View();
+        }
+        public IActionResult Signup()
+        {
+            return View();
+        }
+        public ActionResult _Login()
+        {
+            return PartialView();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

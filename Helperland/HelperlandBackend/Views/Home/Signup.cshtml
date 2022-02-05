@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Signup";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+<body>
+    @Html.Partial("_Login")
+    <link href="~/css/about.css" rel="stylesheet" />
+    <link href="~/css/signup.css" rel="stylesheet" />
+    <link href="~/css/serviceprovider.css" rel="stylesheet" />
+
+    <div class="frmcont1 container">
+        <div class="container">
+            <p class="faq2">Create an account</p>
+            <div class="imgcont">
+                <div class="line">
+                    <figure><img src="~/assets/img/star.png" alt=""></figure>
+                </div>
+                </br>
+
+            </div>
+        </div>
+
+        <form>
+            <div class="frm">
+                <div class="frm1">
+                    <input type="text" placeholder="First name">
+                    <input type="text" placeholder="Last name">
+                </div>
+                <div class="frm1">
+                    <input type="email" placeholder="Email address">
+                    <div class="phn1"><input list="code" name="code" class="pc1" value="+46"> <input type="tel" class="pc2" placeholder="Phone number"></div>
+                </div>
+                <div class="frm1">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="div3">
+
+                <input type="checkbox" id="termsandcon" name="termsandcon" value="termsandcon">
+                <label for="termsandcon"> I have read the privacy policy</label>
+
+                <div class="button">
+                    <button type="submit" class="btn1">Register</button><br><br>
+                    <p>Already registered? Login now</p>
+                </div>
+
+            </div>
+
+
+        </form>
+
+    </div>
+</body>
+
