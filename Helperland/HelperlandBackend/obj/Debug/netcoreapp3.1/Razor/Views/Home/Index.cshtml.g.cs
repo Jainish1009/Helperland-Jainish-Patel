@@ -26,8 +26,15 @@ using HelperlandBackend.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\Tatvasoft git\Helperland-Jainish-Patel\Helperland\HelperlandBackend\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"119a53153a4152f511b5a4d00412223d21a13fb4", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6c2c1d0226b75075b59b2e1ac24610384aceaae0", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f06c70d700c26417085aa44b7e95be89f33f24c5", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -64,7 +71,7 @@ using HelperlandBackend.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "119a53153a4152f511b5a4d00412223d21a13fb43406", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "119a53153a4152f511b5a4d00412223d21a13fb43621", async() => {
                 WriteLiteral("\r\n    ");
 #nullable restore
 #line 9 "D:\Tatvasoft git\Helperland-Jainish-Patel\Helperland\HelperlandBackend\Views\Home\Index.cshtml"

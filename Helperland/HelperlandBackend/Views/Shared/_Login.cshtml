@@ -1,4 +1,4 @@
-﻿
+﻿@model LoginModel
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +29,6 @@
         <div class="modal-dialog modal-dialog-centered" role="document" id="login-box">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -39,54 +38,42 @@
                         <h4>Login to your account</h4>
                     </div>
                     <div class="d-flex flex-column text-center">
-                        <form>
+                        <form method="post" asp-controller="Home" asp-action="Login">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email1" placeholder="Email">
+                                <input type="email" class="form-control" id="email1" asp-for="Email" placeholder="Email">
+                                <span asp-validation-for="Email"></span>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password1" placeholder="Password">
+                                <input type="password" class="form-control" id="password1" asp-for="Password" placeholder="Password">
+                                <span asp-validation-for="Password"></span>
                             </div>
                             <div class="form-group text-left">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                <label for="vehicle1">Remember me</label><br>
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" asp-for="RememberMe">
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                                <br />
                             </div>
                             <div class="btnlgn">
-                                <button type="button" class="btn btn-info btn-block btn-round rounded-pill">Login</button>
+                                <button type="submit" class="btn btn-info btn-block btn-round rounded-pill">Login</button>
                             </div>
                         </form>
-
-
+                      
                     </div>
                 </div>
-
                 <div class="text-center">
                     <a class="setPointer forgotLink" id="forgot-link" data-dismiss="modal" data-toggle="modal" data-target="#forgotModal" style="cursor: pointer; text-decoration: underline; color: blue;">Forgot password?</a>
                 </div>
                 <div class="text-center padlgn">
                     Don't have an account?
-
                     <a asp-controller="Home" asp-action="Signup" class="register-link" style="cursor: pointer; text-decoration: underline; color: blue;">Create an account</a>
                 </div>
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
-
     </div>
 
     <div class="modal fade" id="forgotModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document" id="forgot-box">
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RegModel
+@{
     ViewData["Title"] = "Serviceprovider";
     Layout = "";
 }
@@ -33,64 +34,75 @@
             <!-- navbar -->
             <nav class="navbar navbar-expand-lg  navbar-dark">
                 <div class="container-fluid">
-                    <img src="~/assets/img/logo-large.png">
+                    <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/logo-large.png"></a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsenavbar">
-                        <ul class="navbar-nav ml-auto text-center">
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white "><span class="btn-1">Book a Cleaner</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white"><span>Prices</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white"><span>Our Guarantee</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#blog" class="nav-link text-white"><span>Blog</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white"><span>Contact us</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white" data-toggle="modal" data-target="#loginModal"><span class="btn-2">Login</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white "><span class="btn-1">Become a Helper</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link text-white"><span> <img src="~/assets/img/ic-flag.png"></span></a><i class="fa fa-chevron-down" style="color: white;"></i>
-                            </li>
-                        </ul>
-                    </div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="collapsenavbar">
+                            <ul class="navbar-nav ml-auto text-center">
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="Bookser" class="nav-link text-white "><span class="btn-1">Book a Cleaner</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="Prices" class="nav-link text-white"><span>Prices</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link text-white"><span>Our Guarantee</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#blog" class="nav-link text-white"><span>Blog</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link text-white"><span>Contact us</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link text-white" data-toggle="modal" data-target="#loginModal"><span class="btn-2">Login</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="Serviceprovider" class="nav-link text-white "><span class="btn-1">Become a Helper</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link text-white"><span> <img src="~/assets/img/ic-flag.png"></span></a><i class="fa fa-chevron-down" style="color: white;"></i>
+                                </li>
+                            </ul>
+                        </div>
                 </div>
             </nav>
             <div class="frmcont">
                 <p class="faq1">Register Now!</p><br>
 
+                <form method="post" asp-action="Signup">
 
-                <div class="frm">
-                    <input type="text" placeholder="First name">
-                    <input type="text" placeholder="Last name">
-                    <input type="email" placeholder="Email address">
-                    <div class="phn"><input list="code" name="code" class="pc1" value="+46"> <input type="tel" class="pc2" placeholder="Phone number"></div>
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="Confirm Password">
-                </div>
-                <div class="div2">
-                    <input type="checkbox" id="confirmation" name="confirmation" value="confirmation">
-                    <label for="confirmation"> Send me newsletters from Helperland</label></br>
-                    <input type="checkbox" id="termsandcon" name="termsandcon" value="termsandcon">
-                    <label for="termsandcon"> I accept terms and conditions & privacy policy</label>
-                    <div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"></div>
-                    <div class="button">
-                        <button type="submit" class="btn1">Get Started <img src="~/assets/img/arrow-white.png" alt=""></button>
+                    <div class="frm">
+                        <input type="text" asp-for="FirstName" placeholder="First name">
+                        <span class="text-danger" asp-validation-for="FirstName"></span>
+                        <input type="text" asp-for="LastName" placeholder="Last name">
+                        <span class="text-danger" asp-validation-for="LastName"></span>
+                        <input type="email" asp-for="Email" placeholder="Email address">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                        <div class="phn"><input list="code" name="code" class="pc1" value="+46"> <input type="tel" class="pc2" asp-for="PhoneNumber" placeholder="Phone number"></div>
+                        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                        <input type="password" asp-for="PassWord" placeholder="Password">
+                        <span class="text-danger" asp-validation-for="PassWord"></span>
+                        <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password">
+                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                    </div>
+                    <div class="div2">
+
+                        <input type="checkbox" id="confirmation" name="confirmation" value="confirmation">
+                        <label for="confirmation"> Send me newsletters from Helperland</label><br />
+                        <input type="checkbox" id="termsandcon" name="termsandcon" value="termsandcon">
+                        <label for="termsandcon"> I accept terms and conditions & privacy policy</label>
+                        <div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"></div>
+                        <div class="button"><button type="submit" class="btn1">Get Started <img src="~/assets/img/arrow-white.png" alt=""></button></div>
+
                     </div>
 
-                </div>
+                  </form> 
+                
+
+
 
 
 
@@ -169,13 +181,16 @@
     <!-- footer -->
     <div class="container-fluid" style="background-color: black;">
         <div class="row">
-            <div class="col-2"><img src="~/assets/img/white-logo-transparent-background-copy-4.png" alt="" style="padding-left: 45px;" class="logo"></div>
+            <div class="col-2"><a asp-controller="Home" asp-action="Index"><img src="~/assets/img/white-logo-transparent-background-copy-4.png" alt="" style="padding-left: 45px;" class="logo"></a></div>
             <div class="col-8">
                 <ul style="display: flex; justify-content: center;padding-top: 24px;" class="fo_nav">
-                    <li style="color: white; list-style-type: none; margin: 0px 10px;">Home</li>
-                    <li style="color: white;list-style-type: none;margin: 0px 10px;">About</li>
+                    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;">
+                    <li style="color: white; list-style-type: none; margin: 0px 10px;">Home</li></a>
+                    <a asp-controller="Home" asp-action="About" style="text-decoration: none;">
+                    <li style="color: white;list-style-type: none;margin: 0px 10px;">About</li></a>
                     <li style="color: white;list-style-type: none;margin: 0px 10px;">TESTIMONIALS</li>
-                    <LI style="color: white;list-style-type: none;margin: 0px 10px;">FAQS</LI>
+                    <a asp-controller="Home" asp-action="Faq" style="text-decoration: none;">
+                    <LI style="color: white;list-style-type: none;margin: 0px 10px;">FAQS</LI></a>
                     <li style="color: white;list-style-type: none;margin: 0px 10px;">INSURANCE POLICY</li>
                     <li style="color: white;list-style-type: none;margin: 0px 10px;">IMPRESSUM</li>
                 </ul>
