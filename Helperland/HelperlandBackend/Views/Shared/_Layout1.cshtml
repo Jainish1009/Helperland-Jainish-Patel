@@ -1,129 +1,222 @@
-﻿@inject SignInManager<MyUser> loginmanager
+﻿@using Microsoft.AspNetCore.Http;
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrp link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- for text -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <!-- css file -->
-    <link href="~/css/headfoot.css" rel="stylesheet" />
-   
-   
-    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    @RenderSection("css", required: true)
+    <link rel="shortcut icon" href="~/image/home/favicon.ico" type="image/x-icon" />
+    <title>@ViewBag.Title | Helperland</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg  navbar-dark nav_bar">
-        <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/logo-small.png" class="main_logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto" style="align-items: center;">
-                @if (loginmanager.IsSignedIn(User))
-                {
-                <li class="nav-item prices">
-                    <a asp-controller="Home" asp-action="Prices" class="nav-link"><span class="book_now_text">Prices & services</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
-                </li>
-                <li class="nav-item">
-                    <a asp-controller="Home" asp-action="Contact" class="nav-link"><span class="book_now_text other_btn">Contact Us</span></a>
-                </li>
-                <li class="nav-item">
-                    <form method="post" asp-controller="Home" asp-action="Logout">
-                        <button type="submit" class="nav-link login" style="width:auto;cursor:pointer;background-color:transparent">
-                            <span class="login_text">Logout @User.Identity.Name</span>
-                        </button>
-                    </form>
-                </li>
-                <li class="nav-item prices" style="background-color: #29626d;">
-                    <a asp-controller="Home" asp-action="Serviceprovider" class="nav-link"><span class="login_text">Become a Helper</span></a>
-                </li>
-
-                }
-                else
-                {
-                     <li class="nav-item book_now">
-                    <a asp-controller="Home" asp-action="Bookser" class="nav-link book_now_text"><span class="book_now_text">Book Now</span></a>
-                </li>
-                <li class="nav-item prices">
-                    <a asp-controller="Home" asp-action="Prices" class="nav-link"><span class="book_now_text">Prices & services</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Warranty</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="book_now_text other_btn">Blog</span></a>
-                </li>
-                <li class="nav-item">
-                    <a asp-controller="Home" asp-action="Contact" class="nav-link"><span class="book_now_text other_btn">Contact Us</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link login" data-toggle="modal" data-target="#loginModal" href="#"><span class="login_text">Login</span></a>
-                </li>
-                <li class="nav-item prices" style="background-color: #29626d;">
-                    <a asp-controller="Home" asp-action="Serviceprovider" class="nav-link"><span class="login_text">Become a Helper</span></a>
-                </li>
-                }
-            </ul>
-        </div>
-    </nav>
-
-
+    <!--////////////////////// main part////////////////////////////////// -->
    
+        <header>
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <a class="navbar-brand" asp-controller="Helperland" asp-action="Index"><img src="~/image/faq/logo.png" height="28" alt="logo" /></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        @if (@ViewBag.UType == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link menu" asp-controller="Customer" asp-action="BookService">Book Now </a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link menu" asp-controller="Helperland" asp-action="Prices">Price & Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu" href="javascript:void(0)">Warranty</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu" href="javascript:void(0)">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu" asp-controller="Helperland" asp-action="Contact">Contact</a>
+                        </li>
+                        @if (@ViewBag.IsloggedIn == "success")
+                        {
+                         <li class="nav-item">
+                        <a href="#" class="nav-item nav-link notification_item">
+                            <img class="notification" src="~/image/upcoming_service/notification.png" alt="notification icon"><span class="notification_number">2</span>
+                        </a>
+                        </li>
+                         <li class="nav-item">
+                            
+                             <div class="dropdown user_setting">
+                                 <button class="btn  dropdown-toggle text-white" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     <img src="~/image/upcoming_service/user.svg" alt="user">
+
+                                 </button>
 
 
-    
-    @RenderBody()
+                                 <ul class="dropdown-menu dropdown-menu-right text-start user-setting"
+                                     aria-labelledby="dropdownMenuLink">
+                                     <li><label class="dropdown-item text-dark">Welcome,<br><strong>@ViewBag.UserName</strong></label></li>
+                                     <li>
+                                         <hr class="dropdown-divider">
+                                     </li>
+                                     @if (@ViewBag.UType == 1)
+                                     {
+                                         <li><a class="dropdown-item text-dark" role="button" asp-controller="Customer" asp-action="Dashboard">My Dashboard</a></li>
+                                         <li><a class="dropdown-item text-dark" role="button" asp-controller="Customer" asp-action="MySetting">My Settings</a></li>
+                                         <li><a class="dropdown-item text-dark" role="button" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                     }
+                                     @if (@ViewBag.UType == 2)
+                                     {
+                                         <li><a class="dropdown-item text-dark" role="button" asp-controller="Provider" asp-action="Dashboard">My Dashboard</a></li>
+                                         <li><a class="dropdown-item text-dark" role="button" asp-controller="Provider" asp-action="MySetting">My Settings</a></li>
+                                         <li><a class="dropdown-item text-dark" role="button" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                     }
+
+                                 </ul>
+
+                             </div>
+                         </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link menu loginbtn text-white" asp-controller="Helperland" asp-action="Index" asp-route-loginModal="true">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu" asp-controller="Account" asp-action="ProviderSignup">Become a Helper</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+            <!-- /////////////////////////////MOBILE NAVBAR START////////////////////////// -->
+            <div class="mobileNav fixed-top">
+                <div class="mobileNavSpaccing">
+                   <a asp-controller="Helperland" asp-action="Index"><img class="mobileLogo" src="~/image/home/logo.png" alt="logo"></a> 
+                    @if(@ViewBag.IsloggedIn == "success"){
+                    
+                    <div class="mobileNotification">
+                        <a href="#" class="nav-item nav-link notification_item">
+                            <img class="notification" src="~/image/upcoming_service/notification.png" alt="notification icon"><span class="notification_number">2</span>
+                        </a>
+                    </div>
+                    }
+                    <div class="menubtn">
+                        <button class="navbar-toggler"> <span></span> <span></span> <span></span> </button>
+                    </div>
+                </div>
+                <div class="sideNav">
+                    <div class="openSidenav">
+                        <div class="closebtn"> <img src="~/image/home/times-solid.svg" alt="close"> </div>
+                        <ul>
+
+                            @if (@ViewBag.IsloggedIn == "success" && @ViewBag.UType == 1)
+                            {
+                                <li><h5 class="mobileNavMenu">Welcome <br />@ViewBag.UserName</h5></li>
+                                <hr>
+                                <li><a asp-controller="Customer" asp-action="Dashboard" class="mobileNavMenu">Dashboard</a></li>
+                                <hr>
+                                <li><a asp-controller="Customer" asp-action="ServiceHistory" class="mobileNavMenu">Service History</a></li>
+                                <hr>
+                                <li><a asp-controller="Customer" asp-action="DashServiceSchedule" class="mobileNavMenu">Service Schedule</a></li>
+                                <hr>
+                                <li><a asp-controller="Customer" asp-action="FavPro" class="mobileNavMenu">Favourite Pros</a></li>
+                                <hr>
+                                <li><a class="mobileNavMenu">Invoices</a></li>
+                                <hr>
+                                <li><a class="mobileNavMenu">Notification</a></li>
+                                <hr>
+                                <li><a asp-controller="Customer" asp-action="MySetting" class="mobileNavMenu">My Setting</a></li>
+                                <hr>
+                                <li><a class="mobileNavMenu" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                <hr>
+                            }
+
+                            @if (@ViewBag.IsloggedIn == "success" && @ViewBag.UType == 2)
+                            {
+                                <li><h5 class="mobileNavMenu">Welcome <br />@ViewBag.UserName</h5></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="Dashboard" class="mobileNavMenu">Dashboard</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="NewService" class="mobileNavMenu">New Service Request</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="UpcomingService" class="mobileNavMenu">Upcoming Service</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="ServiceSchedule" class="mobileNavMenu">Service Schedule</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="ServiceHistory" class="mobileNavMenu">Service History</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="MyRating" class="mobileNavMenu">My Rating</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="BlockCustomer" class="mobileNavMenu">Block Customer</a></li>
+                                <hr>
+                                <li><a asp-controller="Provider" asp-action="MySetting" class="mobileNavMenu">My Setting</a></li>
+                                <hr>
+                                <li><a class="mobileNavMenu" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                                <hr>
+                            }
+                            @if (@ViewBag.UType == 1)
+                            {
+                                <li><a asp-controller="Customer" asp-action="BookService" class="mobileNavMenu">Book Now</a></li>
+                                <hr>
+
+                            }
+
+                            <li><a asp-controller="Helperland" asp-action="Prices" class="mobileNavMenu">Prices & Servcies</a></li>
+                            <hr>
+                            <li><a href="javascript:void(0)" class="mobileNavMenu">Warranty</a></li>
+                            <hr>
+                            <li><a href="javascript:void(0)" class="mobileNavMenu">Blog</a></li>
+                            <hr>
+                            <li><a asp-controller="Helperland" asp-action="Contact" class="mobileNavMenu">Contact</a></li>
+                            <hr>
+
+                            @if (@ViewBag.IsloggedIn != "success")
+                            {
 
 
+                                <li><a class="mobileNavMenu loginbtn" asp-controller='Helperland' asp-action='Index' asp-route-loginModal='true'>Login</a></li>
+                                <hr>
+                                <li><a asp-controller="Account" asp-action="ProviderSignup" class="mobileNavMenu">Become a Helper</a></li>
+                                <hr>
+                            }
+
+                            <li>
 
 
-    <!-- footer -->
-    <div class="for_footer">
-        <div class="perent_footer">
-            <div class="first_child">
-                <a asp-controller="Home" asp-action="Index"><img src="~/assets/img/logo-small.png" alt="" class="footer_logo"></a>
-            </div>
-            <div class="secound_child">
-                <ul class="footer_ul">
-                    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;">
-                    <li class="footer_nav">Home</li></a>
-                    <a asp-controller="Home" asp-action="About" style="text-decoration: none;">
-                    <li class="footer_nav">About</li></a>
-                    <li class="footer_nav">TESTIMONIALS</li>
-                    <a asp-controller="Home" asp-action="Faq" style="text-decoration: none;">
-                    <li class="footer_nav">FAQS</li></a>
-                    <li class="footer_nav" style="text-align: center;">INSURANCE POLICY</li>
-                    <li class="footer_nav">IMPRESSUM</li>
-                </ul>
-            </div>
-            <div class="third_child">
-                <i class="fa fa-facebook-square for_facebook"></i>
-                <i class="fa fa-instagram for_insta"></i>
-            </div>
-        </div>
-        <hr class="hr_4">
-        <div class="term_con">
-            <p>©2018 Helperland. All rights reserved.   Terms and Conditions | Privacy Policy</p>
-        </div>
-    </div>
-    <script src="~/js/bookser.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+                                <div class="d-flex justify-content-center">
+                                    <img style="width:50px;height:50px;" class="px-3" src="~/image/home/facebook-f-brands.svg" />
+                                    <img style="width:60px;height:50px;" class="px-3" src="~/image/home/instagram-brands.svg" />
+                                </div>
+                            </li>
+                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+
+                    <!-- /////////////////////////////MOBILE NAVBAR END////////////////////////// -->
+                    @RenderBody()
+                    <!--//////////////////////////////////// FOOTER/////////////////////////////// -->
+                    <footer>
+                        <div class="container d-flex justify-content-between align-items-center fmenu">
+                            <a asp-controller="Helperland" asp-action="Index"><img width="100px" src="~/image/faq/logo.png" alt="logo" /></a>
+                            <div class="d-flex flex-wrap text-center justify-content-center fmenulink"> <a class="px-3" asp-controller="Helperland" asp-action="Index">HOME</a> <a class="px-3" asp-controller="Helperland" asp-action="About">ABOUT</a> <a class="px-3" href="javascript:void(0)">TESTIMONIALS</a> <a class="px-3" asp-controller="Helperland" asp-action="Faqs">FAQS</a> <a class="px-3" href="javascript:void(0)">INSURRANCE POLICY</a> <a class="px-3" href="javascript:void(0)">IMPRESSUM</a> </div>
+                            <div> <img class="img-fluid fimg1" src="~/image/faq/facebook.png" /> <img class="img-fluid fimg2" src="~/image/faq/insta.png" /> </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center text-center hr-line">
+                            <hr />
+                        </div>
+                        <p class="text-center right">©2018 Helperland.All rights reserved.Terms and Conditions | Privacy Policy</p>
+                    </footer>
+
+                    <script src = "~/lib/jquery/jquery.min.js"></script>
+
+                  <script src= "~/lib/twitter-bootstrap/js/bootstrap.min.js" ></script>
+                        @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+                         <script src="js/faq.js"></script>*@
+                        @RenderSection("script", required: true)
+                        </body>
+
+                        </html>

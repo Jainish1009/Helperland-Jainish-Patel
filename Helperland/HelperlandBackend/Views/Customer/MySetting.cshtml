@@ -1,0 +1,324 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_CustDashLayout.cshtml";
+}
+
+<div id="MySetting">
+    <div class="modal fade" id="AddNewAddressModel" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Address </h4>
+                    <a class="close" data-dismiss="modal"><img src="~/image/home/window-close-regular.svg" alt="closebtn"></a>
+                </div>
+                <div class="modal-body">
+                    <div class="newAddressForm">
+                        <form>
+                                <div class="alert alert-danger d-none" role="alert" id="AddNewAddAlert">
+                                    Please Fill All Field !
+                                </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Street name</label>
+                                        <input class="form-control" id="NewStreetName" name="StreetName" type="text" placeholder="Street name" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">House number</label>
+                                        <input class="form-control" id="NewHouseNo" name="HouseNo" type="text" placeholder="House number" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Postal code</label>
+                                        <input class="form-control" id="NewPostalCode" name="PostalCode" type="text" placeholder="Postal Code" maxlength="6" />
+                                        <span class="text-danger d-none" id="AddinvalidZipError">Invalid ZipCode !</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">City</label>
+                                        <input class="form-control" id="NewCity" name="CityName" type="text" placeholder="City" disabled />
+                                        <input class="form-control d-none" id="NewState" name="StateName" type="text" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Phone number</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control input-group-add col-2 px-0 countryCode"
+                                                   placeholder="+91" readonly />
+                                            <input type="number" name="phone" id="NewMobile" class="form-control col-10"
+                                                   placeholder="Phone Number" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="btn largeBtn" type="button" onclick="AddNewAdd();" value="Add" id="addNewAddBtn" disabled="disabled"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="EditAddressModel" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Address </h4>
+                    <a class="close" data-dismiss="modal"><img src="~/image/home/window-close-regular.svg" alt="closebtn"></a>
+                </div>
+                <div class="modal-body">
+                    <div class="EditAddressForm">
+                        <form>
+                            <div class="alert alert-danger d-none" role="alert" id="EditAddAlert">
+                                Please Fill All Field !
+                            </div>
+                            <input class="d-none" id="editAddServiceId" />
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Street name</label>
+                                        <input class="form-control" id="EditStreetName" name="StreetName" type="text" placeholder="Street name" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">House number</label>
+                                        <input class="form-control" id="EditHouseNo" name="HouseNo" type="text" placeholder="House number" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Postal code</label>
+                                        <input class="form-control" id="EditPostalCode" name="PostalCode" type="text" placeholder="Postal Code" maxlength="6" />
+                                        <span class="text-danger d-none" id="EditinvalidZipError">Invalid Postal code</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">City</label>
+                                        <input class="form-control" id="EditCity" name="CityName" type="text" placeholder="City" disabled />
+                                        <input class="form-control d-none" id="EditState" name="State" type="text" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Phone number</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control input-group-add col-2 px-0 countryCode"
+                                                   placeholder="+91" readonly />
+                                            <input type="number" name="phone" id="EditMobile" class="form-control col-10"
+                                                   placeholder="Phone Number" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="btn largeBtn" type="button" onclick="EditAdd();" value="Update" id="EditAddBtn" disabled="disabled" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="DeleteAddressModel" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Address </h4>
+                    <a class="close" data-dismiss="modal"><img src="~/image/home/window-close-regular.svg" alt="closebtn"></a>
+                </div>
+                <div class="modal-body">
+                    <div class="EditAddressForm">
+                        <form>
+                            <input class="d-none" id="DeleteAddServiceId" />
+                            <div class="form-group">
+                                <span class="mb-3">Are you sure you want to delete this address ?</span>
+                            </div>
+                            <input class="btn" type="button" onclick="DeleteAdd();" value="Delete" id="DeleteAddBtn"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="nav nav-pills nav-fill mb-3" id="pills-tab-setting" role="tablist">
+        <li class="nav-item">
+
+            <a class="nav-link active" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab" aria-controls="pills-home" aria-selected="true">
+                <span class="tab-img"><img src="~/image/service_history/my-account-details.png" /></span>
+                <span class="tab-title">My Details</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-address-tab" data-toggle="pill" href="#pills-address" role="tab" aria-controls="pills-profile" aria-selected="false">
+                <span class="tab-img"><img src="~/image/service_history/my-account-address.png" /></span>
+                <span class="tab-title">My Addresses</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-password-tab" data-toggle="pill" href="#pills-password" role="tab" aria-controls="pills-contact" aria-selected="false">
+                <span class="tab-img"><img src="~/image/service_history/my-account-password.png" /></span>
+                <span class="tab-title">Change Password</span>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-home-tab">
+            <form>
+                <div id="updateDetailsAllert"></div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                First Name
+                            </label>
+                            <input class="form-control" placeholder="First Name" id="fname" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Last Name
+                            </label>
+                            <input class="form-control" placeholder="Last Name" id="lname" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                E-mail address
+                            </label>
+                            <input class="form-control" placeholder="Email" id="email" disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Mobile Number
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-add">+91</span>
+                                <input class="form-control" placeholder="Mobile Number" id="mobile" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group date-group">
+                            <label class="control-label">
+                                Date of Birth
+                            </label>
+
+                            <input class="form-control" type="hidden" id="userDob">
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label class="control-label">
+                        My Prefered Language
+                    </label>
+                    <select class="form-control" id="languageId">
+                        <option value="1">
+                            Gujarati
+                        </option>
+                        <option value="2">
+                            English
+                        </option>
+                    </select>
+                </div>
+                <button type="button" class="btn" onclick="updateMyDetails();" disabled="disabled" id="updateDetailsBtn">Save</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="pills-address" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="alert alert-success d-none" role="alert" id="EditAddSuccessAlert">
+                Address Update Successfully !
+            </div>
+            <div class="alert alert-success d-none" role="alert" id="DeleteAddAlert">
+                Address Delete Successfully !
+            </div>
+            <div id="updateAddAllert"></div>
+            <div id="newAddressSection">
+                <table id="myAddressTbl">
+                    <thead>
+                        <tr>
+                            <th>Addresses</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userAddressDetailsTbl">
+                        @*<tr>
+                        <td class="userAddressDetails">
+                            <span><b>Address : </b><span class="userAddress">Bhayani park desainagr</span></span>
+                            <span><b>Phone Number : </b><span class="userMobile">9898989898</span></span>
+                        </td>
+                        <td class="text-center action-buttons">
+                            <a title="Edit">
+                                <img src="~/image/service_history/edit-icon.png" />
+                            </a>
+                            <a title="Delete">
+                                <img src="~/image/service_history/delete-icon.png" />
+                            </a>
+                        </td>
+                    </tr>*@
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-between mt-3">
+                    <div>
+                         <a href="#" data-toggle="modal" data-target="#AddNewAddressModel" data-dismiss="modal" class="btn AddnewBtn">Add New Address</a>
+                    </div>
+                    <div class="loadMoreSection">
+                        <span id="rowNumbers"><span id="shownRow"></span> of <span id="totalRow"></span></span>
+                        <button type="button" class="btn" id="loadMoreAddBtn">Show More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <form>
+                <div id="passUpdateAlert">
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Old Password
+                        </label>
+                        <input class="form-control" placeholder="Old Password" id="oldPass" type="password" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            New Password
+                        </label>
+                        <input class="form-control" placeholder="New Password" id="newPass" type="password" />
+                    </div>
+                    <span class="text-danger" id="passValidationError"></span>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Confirm Password
+                        </label>
+                        <input class="form-control" placeholder="Confirm Password" id="confirmPass" type="password" />
+                    </div>
+                    <span id="confirmPassError" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn" onclick="updatePassword()" id="updatePassBtn" disabled="disabled">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="~/js/CustomDate.min.js"></script>
+    <script src="~/js/CMySetting.js"></script>
+}

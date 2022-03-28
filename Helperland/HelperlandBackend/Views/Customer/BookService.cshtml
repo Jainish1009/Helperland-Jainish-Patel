@@ -1,271 +1,482 @@
 ﻿
-@{
-    Layout = "_Layout1";
-	ViewBag.title="bookservice";
-	
 
+@section css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="~/css/book_service.css" />
 }
+<section>
+    <img src="~/image/booking_service/calculator-banner.png" class="img-fluid bg_main" alt="mainimage" />
+</section>
+<section>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn d-none" data-toggle="modal" data-target="#bookingSuccessfulyDone" id="bookingSuccessfulyDoneBtn">
+        ok
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bookingSuccessfulyDone" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <span>
+                        <img src="~/image/home/logout.png" />
+                    </span>
+                    <h3>Booking has been successfully submitted</h3>
+                    <h4>Service Request Id : <b id="CoonfirmBookReferenceId"></b></h4>
+                    <a class="btn SuccessOkBtn" asp-controller="Customer" asp-action="Dashboard">Ok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="RescheduleError" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h3>This Provider has already booked another service at this time pleaase try Again !</h3>
+                    <a class="btn CancleOkBtn" asp-controller="Customer" asp-action="BookService">Ok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader-div d-none">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center header-color">Set up your cleaning service</h1>
+            <div class="d-flex justify-content-center star">
+                <hr / class="side_hr">
+                <img src="~/image/price/star.png" />
+                <hr / class="side_hr">
+            </div>
+        </div>
+        <div class="row mainPortation">
+            <div class="col-xl-8 col-lg-12">
+                <div>
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item bookNowMenu">
+                            <a class="nav-link active" id="pills-service-tab" data-toggle="pill" href="#pills-service" role="tab"
+                               aria-controls="pills-service" aria-selected="true" onclick="firstTab()">
+                                <img src="~/image/booking_service/setup-service (1).png" />
+                                <p class="mb-0">
+                                    <span class="step-title">
+                                        Setup
+                                        Service
+                                    </span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item bookNowMenu">
+                            <a class="nav-link" id="pills-schedule-tab" data-toggle="pill" href="#pills-schedule" role="tab"
+                               aria-controls="pills-schedule" aria-selected="false" onclick="secondTab()">
+                                <img src="~/image/booking_service/schedule-plan.png" />
+                                <p class="mb-0">
+                                    <span class="step-title">Schedule & Plan</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item bookNowMenu">
+                            <a class="nav-link" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab"
+                               aria-controls="pills-details" aria-selected="false" onclick="thirdTab()">
+                                <img src="~/image/booking_service/user-details (1).png" />
+                                <p class="mb-0">
+                                    <span class="step-title">
+                                        Your
+                                        Details
+                                    </span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item bookNowMenu">
+                            <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab"
+                               aria-controls="pills-payment" aria-selected="false" onclick="fourthTab()">
+                                <img src="~/image/booking_service/payment.png" />
+                                <p class="mb-0">
+                                    <span class="step-title">
+                                        Make
+                                        Payment
+                                    </span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <img src="~/image/price/logo.png" style="display:none" id="loader" />
+                    <div class="tab-content" id="pills-tabContent">
+
+                        @await Html.PartialAsync("_setupServicePV")
+
+                        @await Html.PartialAsync("_scheduleServicePV")
+
+                        @await Html.PartialAsync("_addressDetailsPV")
+
+
+                        <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                            <div class="payment-content">
+                                <form>
+                                    <span class="question">Pay securely with Helperland payment gateway!</span>
+
+                                    <span>Promo Code (Optional)</span>
+                                    <div class="row">
+                                        <div class="col-xs-7 col-sm-6 col-md-4">
+                                            <input class="form-control" type="text" placeholder="Promo Code (Optional)" readonly />
+                                        </div>
+                                        <div class="col-xs-5 col-sm-3 col-md-2">
+                                            <button class="btn custombtn" id="apply" type="submit" disabled>
+                                                Apply
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr class="divider" />
+                                    <div class="inputCardNumber">
+
+                                        <input class="form-control" type="text" placeholder="Card Number" readonly>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-12">
+                                            <div class="Paycard">
+                                                <span>Accept Cards</span><br>
+                                                <span>
+                                                    <img src="~/image/booking_service/master.png" alt="master">
+                                                    <img src="~/image/booking_service/visa.png" alt="visa">
+                                                    <img src="~/image/booking_service/american.png" alt="america">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="divider" />
+                                    <div class="acceptTerm">
+                                        <label>
+                                            <input type="checkbox" id="TermAndCondCheckbox">
+                                            <span>
+                                                I accepted terms and conditions, the cancellation policy and the privacy policy. I confirm that Helperland starts to execute the contract before the expiry of the withdrawal period and I lose my right of withdrawal as a consumer with full performance of the contract.
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <hr class="divider" />
+                                    <div class="text-right">
+                                        <button type="button" class="btn custombtn btn-lg" id="CompleteBookingBtn" onclick="CompleteBooking()">
+                                            Complete Booking
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-8" id="paymentSideTable">
+                <div class="payment-summary">
+                    <h3 class="heading">Payment Summary</h3>
+                    <div class="content">
+                        <span class="psDatetime"></span>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Duration</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Basic</td>
+                                    <td class="psBasicHrs"></td>
+                                </tr>
+                                <tr class="psExtraHeading">
+                                    <td>Extra</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="psInsideCabinet d-none">
+                                    <td>Inside cabinets</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psInsideFridge d-none">
+                                    <td>Inside fridge</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psInsideOven d-none">
+                                    <td>Inside oven</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psLaundary d-none">
+                                    <td>Laundry wash & dry</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psWindows d-none">
+                                    <td>Interior windows</td>
+                                    <td>30 Min.</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <hr class="payment-summary-hr">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <b>Total Service</b>
+                                    </td>
+                                    <td>
+                                        <b class="psTotalHour">3 Hrs</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Per Cleaning</td>
+                                    <td><b class="psTotalPayment">0 Rs.</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content total-payment">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Total Payment</td>
+                                    <td class="psTotalPayment">0 Rs.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="footer">
+
+                        <img alt="Smiley" src="~/image/booking_service/smiley.png">
+                        <span>See what is always included</span>
+
+                    </div>
+                </div>
+                <div class="faq">
+                    <h3>Question ?</h3>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="heading0">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse0" title="What's included in a cleaning?" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> What's included in a cleaning?
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapse0" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    Bedroom, Living Room &amp; Common Areas,Bathrooms,Kitchen,Extras
+                                </div>
+                            </div>
+                        </div><div class="panel panel-default">
+                            <div class="panel-heading" id="heading1">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse1" title="Which Helperland professional will come to my place?" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> Which Helperland professional will come to my place?
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapse1" aria-expanded="false">
+                                <div class="panel-body">
+                                    Helperland has a vast network of experienced, top-rated cleaners. Based on the time and date of your request, we work to assign the best professional available.Like working with a specific pro? Add them to your Pro Team from the mobile app and they'll be requested first for all future bookings.You will receive an email with details about your professional prior to your appointment.
+                                </div>
+                            </div>
+                        </div><div class="panel panel-default">
+                            <div class="panel-heading" id="heading2">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse2" title="Can I skip or reschedule bookings?" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> Can I skip or reschedule bookings?
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapse2" aria-expanded="false">
+                                <div class="panel-body">
+                                    You can reschedule any booking for free at least 24 hours in advance of the scheduled start time. If you need to skip a booking within the minimum commitment, we’ll credit the value of the booking to your account. You can use this credit on future cleanings and other Helperland services.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="heading3">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse3" title="test tatva" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> test tatva
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapse3" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    test tatva
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a title="For more help" href="faq.html">For more help</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Button trigger modal -->
+<button type="button" id="PaymentModalBtn" class="btn btn-primary" data-toggle="modal" data-target="#PaymentModal">
+    Payment Summary 54,00 €
+</button>
+
+<!-- Paymwnt Summary -->
+<div class="modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Payment Summary</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><img src="~/image/booking_service/close-white.png"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary">
+                    <div class="content">
+                        <span class="psDatetime"></span>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Duration</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Basic</td>
+                                    <td class="psBasicHrs"></td>
+                                </tr>
+                                <tr class="psExtraHeading">
+                                    <td>Extra</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="psInsideCabinet d-none">
+                                    <td>Inside cabinets</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psInsideFridge d-none">
+                                    <td>Inside fridge</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psInsideOven d-none">
+                                    <td>Inside oven</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psLaundary d-none">
+                                    <td>Laundry wash & dry</td>
+                                    <td>30 Min.</td>
+                                </tr>
+                                <tr class="psWindows d-none">
+                                    <td>Interior windows</td>
+                                    <td>30 Min.</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <hr class="payment-summary-hr">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <b>Total Service</b>
+                                    </td>
+                                    <td>
+                                        <b class="psTotalHour">3 Hrs</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Per Cleaning</td>
+                                    <td><b class="psTotalPayment">0 Rs.</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content total-payment">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Total Payment</td>
+                                    <td class="psTotalPayment">0 Rs.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="footer">
+
+                        <img alt="Smiley" src="~/image/booking_service/smiley.png">
+                        <span>See what is always included</span>
+
+                    </div>
+                </div>
+                <div class="faq">
+                    <h3>Question ?</h3>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="heading0">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#mobileCollapse0" title="What's included in a cleaning?" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> What's included in a cleaning?
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="mobileCollapse0" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    Bedroom, Living Room &amp; Common Areas,Bathrooms,Kitchen,Extras
+                                </div>
+                            </div>
+                        </div><div class="panel panel-default">
+                            <div class="panel-heading" id="heading1">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#mobileCollapse1" title="Which Helperland professional will come to my place?" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> Which Helperland professional will come to my place?
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="mobileCollapse1" aria-expanded="false">
+                                <div class="panel-body">
+                                    Helperland has a vast network of experienced, top-rated cleaners. Based on the time and date of your request, we work to assign the best professional available.Like working with a specific pro? Add them to your Pro Team from the mobile app and they'll be requested first for all future bookings.You will receive an email with details about your professional prior to your appointment.
+                                </div>
+                            </div>
+                        </div><div class="panel panel-default">
+                            <div class="panel-heading" id="heading2">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#mobileCollapse2" title="Can I skip or reschedule bookings?" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> Can I skip or reschedule bookings?
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="mobileCollapse2" aria-expanded="false">
+                                <div class="panel-body">
+                                    You can reschedule any booking for free at least 24 hours in advance of the scheduled start time. If you need to skip a booking within the minimum commitment, we’ll credit the value of the booking to your account. You can use this credit on future cleanings and other Helperland services.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="heading3">
+                                <a class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#mobileCollapse3" title="test tatva" aria-expanded="false">
+                                    <img alt="Right Arrow" src="~/image/booking_service/right-arrow-dark.png"> test tatva
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="mobileCollapse3" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    test tatva
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a title="For more help" asp-controller="Helperland" asp-action="Faqs">For more help</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 
-@section Custom
-{
-<link rel="stylesheet" href="~/css/bookService.css" />
-
-
+@section script{
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/book_service.js"></script>
 }
-
-
-
-	<div>
-		<img src="~/image/calculator-banner.png" class="img-fluid" alt="...">
-	</div>
-
-	<section class="prices-services">
-		<div>
-			<h1 class="title text-center">Set up your cleaning services</h1>
-
-		</div>
-
-		<div class="text-center">
-			<img src="~/image/faq-seprator.png" class="img-fluid image-seprator" alt="...">
-		</div>
-	</section>
-
-	<section class="container">
-		<div class="row">
-			<div class="col-lg-8 col-md-12 clearfix">
-
-				<div class="tab">
-					<button class="tablinks" onclick="set_service(event, 'at1')"  id="defaultOpen"><img
-							src="~/image/setupservice.png" alt=".."> Setup service</button>
-					<button class="tablinks" onclick="set_service(event, 'at2')" id="form2Btn"><img src="~/image/schedule.png"
-							alt=".."> Schedule & Plan</button>
-					<button class="tablinks" onclick="set_service(event, 'at3')" id="form3Btn"><img src="~/image/details.png"
-							alt=".."> Your Details</button>
-					<button class="tablinks" onclick="set_service(event, 'at4')" id="form4Btn"><img
-							src="~/image/payment.png" alt=".."> Make Payment</button>
-				</div>
-
-
-  @await Html.PartialAsync("form1")
-   @await Html.PartialAsync("form2")
-    @await Html.PartialAsync("form3")
-	 @await Html.PartialAsync("form4")
-
-			
-
-
-
-
-
-
-
-
-				
-			</div>
-
-			<div class="col-lg-4 col-md-12">
-
-				<div class="card">
-					<div class="card-header">
-						Payment Summary
-					</div>
-					<div class="card-body">
-						 <p class="card-text"> <span class="SIForDate"></span> <span class=" SIForTime " ></span> <br> 1 bed, 1 bath.</p>
-
-						<h3 class="card-text">
-							Duration
-						</h3>
-						<div class="row">
-							<div class="col">
-								<p class="card-text">
-									Basic
-								</p>
-							</div>
-							<div class="col">
-								<p class="card-text text-end">
-									<span class="SIForDuration">  </span> Hrs
-								</p>
-							</div>
-						</div>
-						<p class="card-text hidden" id="extra3">
-							Inside cabinets <span class="extratime">30 min</span>
-						</p>
-						<p class="card-text hidden" id="extra5">
-							Inside fridge  <span class="extratime"> 30 min </span>  
-						</p>
-							<p class="card-text hidden" id="extra4">
-							Inside oven  <span class="extratime"> 30 min </span>  				
-								</p>
-						<p class="card-text hidden" id="extra2">
-							Laundry wash and dry   <span class="extratime"> 30 min </span>  
-												</p>
-						<p class="card-text hidden" id="extra1">
-							Interior windows  <span class="extratime">  30 min </span>  
-						</p>
-						<hr>
-						<div class="row">
-							<div class="col">
-								<p class="card-text total_time">
-									Total Service Time
-								</p>
-							</div>
-							<div class="col">
-								<p class="card-text text-end price">
-									<span id="total_hours">3</span>Hrs
-									
-								</p>
-							</div>
-						</div>
-
-						<hr>
-						<div class="row">
-							<div class="col">
-								<p class="card-text">
-									Per cleaning
-								</p>
-							</div>
-							<div class="col">
-								<p class="card-text text-end price">
-									$ <span id="total_price">75</span>
-								</p>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col">
-								<p class="card-text">
-									Discount
-								</p>
-							</div>
-							<div class="col">
-								<p class="card-text text-end price">
-									-$ <span id="discount">0</span>
-								</p>
-							</div>
-						</div>
-
-						<hr>
-						<div class="row">
-							<div class="col">
-								<p class="card-text total_payment">
-									Total Payment
-								</p>
-							</div>
-							<div class="col">
-								<p class="card-text text-end total_price">
-									$ <span id="priceAfterDiscount">75</span>
-								</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<p class="card-text">
-									Effective Price
-								</p>
-							</div>
-							<div class="col">
-								<p class="card-text text-end effective_price">
-									$ <span id="priceAfterPromo">75</span>
-								</p>
-							</div>
-						</div>
-						<p class="card-text saving">*You will save $<span id="promo">0</span> according to §35a EStG.</p>
-					</div>
-					<div class="card-footer">
-						<img src="~/image/smiley.png" alt=".."> See what is always included
-					</div>
-				</div>
-
-				<div class="suggestion">
-					<h3 class="text-center">
-						Questions?
-					</h3>
-					<div class="que">
-						<a class="large-content" data-bs-toggle="collapse" href="#collapseExample1" role="button"
-							aria-expanded="false" aria-controls="collapseExample">
-							<img src="~/image/right-arrow.png" alt=""> Which Helperland professional will come to my
-							place?
-						</a>
-						<div class="collapse" id="collapseExample1">
-							<div class="small-content">
-								ans.
-							</div>
-						</div>
-					</div>
-					<div class="que">
-						<a class="large-content" data-bs-toggle="collapse" href="#collapseExample2" role="button"
-							aria-expanded="false" aria-controls="collapseExample">
-							<img src="~/image/right-arrow.png" alt=""> Which Helperland professional will come to my
-							place?
-						</a>
-						<div class="collapse" id="collapseExample2">
-							<div class="small-content">
-								ans.
-							</div>
-						</div>
-					</div>
-					<div class="que">
-
-						<a class="large-content" data-bs-toggle="collapse" href="#collapseExample3" role="button"
-							aria-expanded="false" aria-controls="collapseExample">
-							<img src="~/image/right-arrow.png" alt=""> Which Helperland professional will come to my
-							place?
-						</a>
-						<div class="collapse" id="collapseExample3">
-							<div class="small-content">
-								ans.
-							</div>
-						</div>
-					</div>
-					<div class="que">
-
-						<a class="large-content" data-bs-toggle="collapse" href="#collapseExample4" role="button"
-							aria-expanded="false" aria-controls="collapseExample">
-							<img src="~/image/right-arrow.png" alt=""> Which Helperland professional will come to my
-							place?
-						</a>
-						<div class="collapse" id="collapseExample4">
-							<div class="small-content">
-								ans.
-							</div>
-						</div>
-					</div>
-					<div class="que">
-
-						<a class="large-content" data-bs-toggle="collapse" href="#collapseExample5" role="button"
-							aria-expanded="false" aria-controls="collapseExample">
-							<img src="~/image/right-arrow.png" alt=""> Which Helperland professional will come to my
-							place?
-						</a>
-						<div class="collapse" id="collapseExample5">
-							<div class="small-content">
-								ans.
-							</div>
-						</div>
-					</div>
-					<div class="more">
-
-						<a href="#"> For more help</a>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	 <script src="~/js/bookService.js"></script>
-	<script>
-		
-
-
-
-	</script>
-	
-
-	
-

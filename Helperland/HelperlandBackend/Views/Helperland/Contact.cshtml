@@ -1,0 +1,147 @@
+﻿@model HelperlandBackend.Models.ViewModels.contactusform
+
+@section css{
+    <link rel="stylesheet" href="~/css/contact.css" />
+}
+
+<section>
+    <div> <img src="~/image/contact/mainbg.png" class="img-fluid bg_main" alt="mainimage" /> </div>
+</section>
+<!--//////////////////////////////////// Contact us/////////////////////////////// -->
+<section class="contactus">
+    <h2 class="text-center contactusHeading">Contact us</h2>
+    <div class="d-flex justify-content-center star">
+        <hr / class="side_hr"> <img src="~/image/price/star.png" />
+        <hr / class="side_hr">
+    </div>
+    <div class="container contactus_container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-sm-6 ">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img src="~/image/contact/location.svg" alt="location">
+                    <div class="text-center contactus_text">
+                        1111 Lorem ipsum text 100,
+                        <br> Lorem ipsum AB
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-sm-6 iconcolumn">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img src="~/image/contact/phone-call.png" alt="call">
+                    <div class="text-center contactus_text">
+                        +49 (40) 123 56 7890
+                        <br> +49 (40) 987 56 0000
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-sm-12 iconcolumn">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img src="~/image/contact/mail_image.webp" alt="email">
+                    <div class="text-center contactus_text">info@helperland.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center">
+        <hr / class="contactusHr">
+    </div>
+</section>
+<!-- /* //////////////////////////////////// Contact us form /////////////////////////////// */ -->
+<section class="contactusForm">
+    <h2 class="contactusFormHeading text-center">Get in touch with us</h2>
+    <div class="container contactusFormContainer">
+
+        @if (ViewBag.IsSuccess == true)
+        {
+            <div class="alert alert-success  fade show" role="alert">
+                <strong>
+                    Your message has been sent successfully. Our team will be in touch with you shortly.
+                </strong>
+            </div>
+        }
+        <form enctype="multipart/form-data" asp-controller="Helperland" asp-action="Contact" method="post">
+            <div class="form-row form-group mb-2">
+                <div class="col-12 col-sm-6">
+                    <input id="first_name" asp-for="fname" class="form-control" placeholder="First name">
+                    <span asp-validation-for="fname" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input id="last_name" asp-for="lname" name="lname" type="text" class="form-control" placeholder="Last name">
+                    <span asp-validation-for="lname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row form-group mb-2">
+                <div class="col-12 col-sm-6">
+                    <div class="input-group mx-0 row">
+                        <span class="input-group-text col-2" id="countryCode">+91</span>
+                        <input asp-for="PhoneNumber" class="form-control col-10" placeholder="Mobile Number" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input id="usermail" asp-for="Email" class="form-control" placeholder="Email Adress">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <select asp-for="Subject" class="form-control" name="subject" id="subject">
+                            <option value="general" selected>General</option>
+                            <option value="inquiry">Inquiry</option>
+                            <option value="renewal">Renewal</option>
+                            <option value="revocation">Revocation</option>
+                        </select>
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <textarea asp-for="Message" placeholder="Message" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-row mb-2">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="uploadlbl">enclose attachment</label>
+                        <label id="uploadFileBtn" for="upload-file">Upload</label>
+                        <input asp-for="UploadFileName" id="upload-file" />
+                        <span id="uploadFilePath"></span>
+                    </div>
+                    <span asp-validation-for="UploadFileName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-sm-12 form-check">
+                    <input type="checkbox" class="form-check-input" id="AgreeTerms" required />
+                    <label class="form-check-label AgreeTermsStatement" for="AgreeTerms">Our current data protection regulations apply . I hereby agree that my data entered in the contact form will be stored electronically and processed and used for the purpose of establishing contact. The consent can be revoked at any time in accordance with Art. 7 Para. 3 GDPR by informal notification (e.g. by e-mail).</label>
+                </div>
+            </div>
+
+
+            <div class="text-center form-group">
+
+                <input type="submit" value="submit" class="formSubmit mt-2" />
+            </div>
+        </form>
+    </div>
+</section>
+<!--//////////////////////////////////// MAP/////////////////////////////// -->
+<section>
+
+    <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5050.5586342451925!2d7.132881087492974!3d50.73330811749668!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bee13f0afebfb1%3A0x7caeb94f4c1042fc!2sK%C3%B6nigswinterer%20Str.%20116%2C%2053227%20Bonn%2C%20Germany!5e0!3m2!1sen!2sus!4v1643370187652!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <h3 class="text-center contact"><strong>GET OUR NEWSLETTER</strong></h3>
+    <form class="text-center subscribeEmail">
+        <div class="form-group">
+            <input type="email" id="email" class="form-control" placeholder="Your Email" />
+            <button type="button" class="btn submitbtn">Submit</button>
+        </div>
+    </form>
+</section>
+@section script{
+   
+    <script src="~/js/contact.js"></script>
+}

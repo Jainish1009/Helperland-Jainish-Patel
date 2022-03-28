@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace helperland1._0.Models
+namespace HelperlandBackend.Models
 {
     public partial class Rating
     {

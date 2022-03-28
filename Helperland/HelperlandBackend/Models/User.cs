@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
-namespace helperland1._0.Models
+namespace HelperlandBackend.Models
 {
     public partial class User
     {
@@ -20,29 +19,28 @@ namespace helperland1._0.Models
             UserAddresses = new HashSet<UserAddress>();
         }
 
-       
         public int UserId { get; set; }
-
-        [Required(ErrorMessage = "Please Enter First Name")]
+        [Required(ErrorMessage = "First name is must")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "Min 2 and Max 15 Characters  allow")]
         public string FirstName { get; set; }
 
-
-        [Required(ErrorMessage = "Please Enter Last Name")]
+        [Required(ErrorMessage = "Last name is must")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "Min 2 and Max 15 Characters  allow")]
         public string LastName { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
+
+        [Required(ErrorMessage = "Email is must")]
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Enter Valid Email")]
         public string Email { get; set; }
-        [Required]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,14}$", ErrorMessage = "Please enter Stronge Password")]
+
+        [Required(ErrorMessage = "Password is must")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,14}$", ErrorMessage = "Password must contain at least 1 capital letter, 1 small letter, 1 number and one special character. Password length must be in between 6 to 14 characters")]
         public string Password { get; set; }
 
-        [NotMapped] // Does not effect with your database
-        [Required(ErrorMessage = "Please Enter Confirm Password")]
-        [Compare("Password")]
-        public string ConfirmPassword { get; set; }
-        [Required]
-        [StringLength(10, ErrorMessage = "Please Enter Valid Phone No")]
+        [Required(ErrorMessage = "Mobile is must")]
+        [StringLength(10, MinimumLength = 5, ErrorMessage = "Enter Valid Mobile")]
         public string Mobile { get; set; }
+
         public int UserTypeId { get; set; }
         public int? Gender { get; set; }
         public DateTime? DateOfBirth { get; set; }
