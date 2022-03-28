@@ -6335,11 +6335,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+      "projectUniqueName": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
       "projectName": "HelperlandBackend",
-      "projectPath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+      "projectPath": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
       "packagesPath": "C:\\Users\\jaini\\.nuget\\packages\\",
-      "outputPath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\obj\\",
+      "outputPath": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jaini\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ev0+FalpXtqxJOW3M+ShCvulwPYriwyNi1wou2u8YEtbw72Si/+v3YPa4DhcsbZ23bewTcYN6GFuzc0envPVYA==",
+  "dgSpecHash": "Hyc6fVyDFCPfFg4Ggf7kN+57hbxy5eK2XtxBywNUm9nlY2AwoCz8RpCQAGquaKwIH9xPAtprFJyAdOy6kbJWcA==",
   "success": true,
-  "projectFilePath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+  "projectFilePath": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jaini\\.nuget\\packages\\bcrypt.net\\0.1.0\\bcrypt.net.0.1.0.nupkg.sha512",
     "C:\\Users\\jaini\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
