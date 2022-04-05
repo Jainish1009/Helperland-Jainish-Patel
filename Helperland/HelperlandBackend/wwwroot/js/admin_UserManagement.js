@@ -61,7 +61,6 @@ function getData() {
                         UserManagementTblData.append('<tr><td>' + response[i].username + '</td><td></td><td><span class="date"><img src="../image/upcoming_service/calendar.webp"> ' + response[i].createdDate + '</span></td><td>' + response[i].userType + '</td><td>' + response[i].mobile + '</td><td class="text-center">' + response[i].postalCode + '</td><td class="inactive"><span>Inactive</span></td><td class="actionbutton"><div class="action"> <span></span> <span></span> <span></span> </div><div class="threeDotsubMenu"><ul><li class="actionBtnActivate"><span class="d-none">' + response[i].userId + '</span><a>Activate</a></li></ul></div></td><td class="d-none">' + response[i].email + '</td></tr>');
                     }
                     }
-                    //console.log(response);     
                 table = $('#userManagementTable').DataTable({
                     "dom": 'Bt<"table-bottom d-flex justify-content-between"<"table-bottom-inner d-flex"li>p>',
                     "pagingType": "full_numbers",
@@ -153,8 +152,8 @@ function getData() {
                     var clickedRow = $(this).children(':first-child').text();
                     $('#ClickedUserId').val(clickedRow);
                     $('#DeactivateActionModal').modal({
-                        backdrop: 'static', // to prevent closing with click
-                        keyboard: false  // to prevent closing with 
+                        backdrop: 'static',      
+                        keyboard: false       
                     });
                     $("#DeactivateActionModal").modal("show");
                 });
@@ -163,8 +162,8 @@ function getData() {
                     var clickRow = $(this).children(':first-child').text();
                         $('#ClickUserId').val(clickRow);
                         $('#ActivateActionModal').modal({
-                            backdrop: 'static', // to prevent closing with click
-                            keyboard: false  // to prevent closing with 
+                            backdrop: 'static',      
+                            keyboard: false       
                         });
                         $("#ActivateActionModal").modal("show");
                 });
@@ -197,8 +196,8 @@ function DeactivateUser() {
                 if (response == "Successfully") {
                     $("#DeactivateActionModal").modal("hide");
                     $('#SuccessActionModal').modal({
-                        backdrop: 'static', // to prevent closing with click
-                        keyboard: false  // to prevent closing with 
+                        backdrop: 'static',      
+                        keyboard: false       
                     });
                     $("#SuccessActionModal").modal("show");
                 } else {
@@ -226,8 +225,8 @@ function ActivateUser() {
                 if (response == "Successfully") {
                     $("#ActivateActionModal").modal("hide");
                     $('#SuccessActionModal').modal({
-                        backdrop: 'static', // to prevent closing with click
-                        keyboard: false  // to prevent closing with 
+                        backdrop: 'static',      
+                        keyboard: false       
                     });
                     $("#SuccessActionModal").modal("show");
                 } else {
@@ -281,12 +280,6 @@ function sort(col, order) {
         sort(6,"desc");
     }
   });
-
-//// PREVENT FFROM BACK BUTTON AFTER LOGOUT
-//window.history.forward();
-//function noBack() {
-//    window.history.forward();
-//}
 
 
 

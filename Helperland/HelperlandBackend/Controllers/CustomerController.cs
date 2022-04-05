@@ -587,6 +587,7 @@ namespace HelperlandBackend.Controllers
                         string fromEmail = "paofdavid007@gmail.com";
                         string fromEmailPassword = "D@vid123";
 
+
                         string MailBody = "<!DOCTYPE html>" +
                                      "<html> " +
                                          "<body style=\"background -color:#ff7f26;text-align:center;\"> " +

@@ -21,7 +21,6 @@ window.onclick = function (event) {
 	}
 }
 
-// ADDRESS PICKER
 $(document).ready(function () {
     var date_input = $('#scheduleDate');
     date_input.datepicker({
@@ -31,7 +30,6 @@ $(document).ready(function () {
     });
 });
 
-//FOR ADD NEW ADDRESS BTN
 AddNewAddressbtn.addEventListener('click', () => {
 	newAddressForm.classList.remove('d-none');
 	AddNewAddressbtn.classList.add('d-none');
@@ -44,12 +42,11 @@ cancelAdressform.addEventListener('click', () => {
 
 $('#bookingSuccessfulyDoneBtn').click(function () {
 $('#bookingSuccessfulyDone').modal({
-    backdrop: 'static', // to prevent closing with click
-    keyboard: false  // to prevent closing with 
+    backdrop: 'static',      
+    keyboard: false       
 });
 });
 
-//FOR PAYMENT SUMMARY
 function PaymentSummaryTable() {
 
 	var ExtraHr,basicHr,cabinet, fridge, oven, laundary, window = 0;
@@ -103,7 +100,6 @@ function PaymentSummaryTable() {
 	$(".psTotalPayment").text(parseFloat(totalHr * 10)+ " " + "Rs.");
 }
 
-// FIRST TAB POST REQUEST
 function checkZip() {
     var Zipdata = $('#setupService').serialize();
     $('#NewPostalCode').val($('#postalCode').val());
@@ -148,7 +144,6 @@ function checkZip() {
     });
 }
 
-// SECOND TAB POST REQUEST
 function ScheduleService() {
     var ScheduleData = $('#scheduleData').serialize();
     $.ajax({
@@ -188,7 +183,6 @@ function ScheduleService() {
     });
 }
 
-// THIRD TAB POST REQUEST
 function getAddressOfUser() {
     $.ajax({
         type: 'GET',
@@ -311,7 +305,6 @@ $("#step3btn").on("click", function () {
 });
 
 
-// FINAL TAB POST REQUEST
 function CompleteBooking() {
 
     var NewBookingRequest = {};
@@ -361,8 +354,8 @@ function CompleteBooking() {
                 else if (response == "AnotherServiceBooked")
                 {
                     $('#RescheduleError').modal({
-                        backdrop: 'static', // to prevent closing with click
-                        keyboard: false  // to prevent closing with 
+                        backdrop: 'static',      
+                        keyboard: false       
                     });
                     $("#RescheduleError").modal('show');
                 }

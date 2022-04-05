@@ -100,17 +100,7 @@
                 <textarea asp-for="Message" placeholder="Message" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Message" class="text-danger"></span>
             </div>
-            <div class="form-row mb-2">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label class="uploadlbl">enclose attachment</label>
-                        <label id="uploadFileBtn" for="upload-file">Upload</label>
-                        <input asp-for="UploadFileName" id="upload-file" />
-                        <span id="uploadFilePath"></span>
-                    </div>
-                    <span asp-validation-for="UploadFileName" class="text-danger"></span>
-                </div>
-            </div>
+            
 
             <div class="form-row">
                 <div class="col-sm-12 form-check">

@@ -295,7 +295,7 @@ function GetRescheduleRequest(x) {
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success:
             function (response) {
-                //console.log(response);
+                
                 $("#RescheduleDate").val(response.serviceDate);
                 $("#rescheduleTime").val(response.serviceStartTime);
                 $("#EditStreetName").val(response.addLine2);
@@ -396,8 +396,8 @@ $("#RefundBtn").on('click', () => {
                     else {
                         $("#RefundModal").modal("hide");
                         $('#SuccessActionModal').modal({
-                            backdrop: 'static', // to prevent closing with click
-                            keyboard: false  // to prevent closing with 
+                            backdrop: 'static',      
+                            keyboard: false       
                         });
                         $("#SuccessActionModal").modal("show");
                     }
@@ -440,8 +440,8 @@ $("#EditAndRescheduleBtn").on('click', () => {
                     if (response == "UpdateSuccessfully") {
                         $("#EditRescheduleModel").modal('hide');
                         $('#SuccessActionModal').modal({
-                            backdrop: 'static', // to prevent closing with click
-                            keyboard: false  // to prevent closing with 
+                            backdrop: 'static',      
+                            keyboard: false  
                         });
                         $("#SuccessActionModal").modal("show");
                     } else {
@@ -506,8 +506,8 @@ function CancleService() {
                 if (response == "Sucessfully") {
                     $("#CancleModal").modal("hide");
                     $('#SuccessActionModal').modal({
-                        backdrop: 'static', // to prevent closing with click
-                        keyboard: false  // to prevent closing with 
+                        backdrop: 'static',      
+                        keyboard: false       
                     });
                     $("#SuccessActionModal").modal("show");
                 } else {
@@ -531,7 +531,6 @@ function GetServiceSummary(x, y) {
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
         success:
             function (response) {
-                //console.log(response);
                 $("#SerExtra").empty();
                 if (response.cabinet) {
                     $("#SerExtra").append('Inside Cabinet, ')

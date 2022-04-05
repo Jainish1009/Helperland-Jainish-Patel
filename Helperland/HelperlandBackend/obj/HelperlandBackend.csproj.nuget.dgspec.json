@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj": {}
+    "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj": {
+    "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+        "projectUniqueName": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
         "projectName": "HelperlandBackend",
-        "projectPath": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
+        "projectPath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\HelperlandBackend.csproj",
         "packagesPath": "C:\\Users\\jaini\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jaini\\Downloads\\jp\\Helperland-master\\Helperland\\HelperlandBackend\\obj\\",
+        "outputPath": "D:\\Tatvasoft git\\Helperland-Jainish-Patel\\Helperland\\HelperlandBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jaini\\AppData\\Roaming\\NuGet\\NuGet.Config",

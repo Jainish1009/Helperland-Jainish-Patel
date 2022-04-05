@@ -85,7 +85,7 @@ namespace HelperlandBackend.Models.Data
 
                 entity.Property(e => e.Subject).HasMaxLength(500);
 
-                entity.Property(e => e.UploadFileName).HasMaxLength(100);
+                //entity.Property(e => e.UploadFileName).HasMaxLength(100);
             });
 
             modelBuilder.Entity<FavoriteAndBlocked>(entity =>

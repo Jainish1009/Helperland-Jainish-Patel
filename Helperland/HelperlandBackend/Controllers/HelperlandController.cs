@@ -103,14 +103,7 @@ namespace HelperlandBackend.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(contactform.UploadFileName != null)
-                {
-                    string folder = "contactUsUploadedFile/";
-                    folder += Guid.NewGuid().ToString() + "_" +contactform.UploadFileName.FileName;
-                    contactform.UploadFilePath = folder;
-                    string serverfolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
-                    contactform.UploadFileName.CopyToAsync(new FileStream(serverfolder, FileMode.Create)); ;
-                }
+                
                 var request = new ContactUs()
                 {
                     Name = contactform.fname + " " + contactform.lname,
@@ -119,8 +112,6 @@ namespace HelperlandBackend.Controllers
                     PhoneNumber = contactform.PhoneNumber,
                     Message = contactform.Message,
                     CreatedOn = DateTime.UtcNow,
-                    UploadFileName = contactform.UploadFilePath,
-                    FileName = contactform.UploadFileName.FileName,
                 };
             _helperlandContext.ContactUs.Add(request);
             _helperlandContext.SaveChanges();
@@ -142,10 +133,10 @@ namespace HelperlandBackend.Controllers
                               "<p>Subject : " + request.Subject + "</p>" +
                               "<p>PhoneNumber : " + request.PhoneNumber + "</p>" +
                               "<p>Message : " + request.Message + "</p>" +
-                              "<p>upload FileName : " + request.FileName + "</p>" +
+                              
                              "</body> " +
                          "</html>";
-                MailMessage message = new MailMessage(new MailAddress(fromEmail, mailTitle), new MailAddress("admin001@yopmail.com"));
+                MailMessage message = new MailMessage(new MailAddress(fromEmail, mailTitle), new MailAddress("davidking6064@gmail.com"));
                 message.Subject = subject;
                 message.Body = MailBody;
                 message.IsBodyHtml = true;

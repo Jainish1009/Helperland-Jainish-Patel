@@ -19,16 +19,3 @@ window.onclick = function(event) {
 }
 
 
-$(document).ready(function () {
-	$('#upload-file').on("change", function () {
-		var filename = $(this).val().split("\\").pop();
-		$(this).next('#uploadFilePath').html(filename);
-	});
-});
-
-
-// PREVENT FFROM BACK BUTTON AFTER LOGOUT
-//window.history.forward();
-//function noBack() {
-//	window.history.forward();
-//}

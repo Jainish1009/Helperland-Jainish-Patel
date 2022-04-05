@@ -24,6 +24,8 @@ function GetData() {
                             Service[a] = ServiceInfo;
                         a++;
                     }
+
+
                     $('#calendar').fullCalendar({
                         header: {
                             left: 'prev,next title',
